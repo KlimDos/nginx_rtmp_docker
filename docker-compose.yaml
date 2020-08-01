@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+    web:
+        image: tiangolo/nginx-rtmp
+        ports:
+        - 1935:1935
+        restart: always
+        volumes:
+            - type: bind
+              source: ./storage
+              target: /usr/share/nginx/html
+              volume:
+                nocopy: true
+
+            - type: bind
+              source: ./config/nginx.conf
+              target: /etc/nginx/nginx.conf
+              volume:
+                nocopy: true
