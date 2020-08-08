@@ -3,6 +3,7 @@ version: '3.7'
 services:
     web:
         image: tiangolo/nginx-rtmp
+        #build: .
         ports:
         - 1935:1935
         restart: always
